@@ -9,11 +9,11 @@ if (is_file($envFile)) {
     }
 }
 
-$host = getenv('DB_HOST') ?: '127.0.0.1';
-$user = getenv('DB_USERNAME') ?: 'root';
-$password = getenv('DB_PASSWORD') ?: '12345678';
-$database = getenv('DB_DATABASE') ?: 'ecommecs';
-$port = getenv('DB_PORT') ?: 3306;
+$host = getenv('DB_HOST');
+$user = getenv('DB_USERNAME');
+$password = getenv('DB_PASSWORD');
+$database = getenv('DB_DATABASE');
+$port = getenv('DB_PORT');
 
 // Initialize mysqli
 $link = mysqli_init();
