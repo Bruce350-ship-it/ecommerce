@@ -1,0 +1,26 @@
+# Environment files
+.env
+.env.example
+.env.local
+.env.production
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+cache/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Uploaded images (if not needed in repo)
+book_img/
+item_img/
+images/
