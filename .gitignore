@@ -15,12 +15,13 @@ cache/
 # OS-specific
 .DS_Store
 Thumbs.db
+dump.sql
 
 # IDE files
 .vscode/
 .idea/
 
 # Uploaded images (if not needed in repo)
-book_img/
-item_img/
-images/
+# book_img/
+# item_img/
+# images/
