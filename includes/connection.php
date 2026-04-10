@@ -8,14 +8,32 @@ if (is_file($envFile)) {
         }
     }
 }
-$link = new mysqli(
-    getenv('DB_HOST') ?: '127.0.0.1',
-    getenv('DB_USERNAME') ?: 'root',
-    getenv('DB_PASSWORD') ?: '12345678',
-    getenv('DB_DATABASE') ?: 'ecommecs',
-    getenv('DB_PORT') ?: 3306
+
+$host = getenv('DB_HOST') ?: '127.0.0.1';
+$user = getenv('DB_USERNAME') ?: 'root';
+$password = getenv('DB_PASSWORD') ?: '12345678';
+$database = getenv('DB_DATABASE') ?: 'ecommecs';
+$port = getenv('DB_PORT') ?: 3306;
+
+// Initialize mysqli
+$link = mysqli_init();
+
+// Enable SSL (required for TiDB Cloud)
+mysqli_ssl_set($link, NULL, NULL, NULL, NULL, NULL);
+
+// Connect with SSL
+mysqli_real_connect(
+    $link,
+    $host,
+    $user,
+    $password,
+    $database,
+    $port,
+    NULL,
+    MYSQLI_CLIENT_SSL
 );
-if ($link->connect_error) {
-    die('Connection failed: ' . $link->connect_error);
+
+if (!$link) {
+    die('Connection failed: ' . mysqli_connect_error());
 }
 ?>
